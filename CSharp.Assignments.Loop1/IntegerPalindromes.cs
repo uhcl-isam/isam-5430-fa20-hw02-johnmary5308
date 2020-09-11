@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace CSharp.Assignments.Loop1
 {
     /// <summary>
@@ -19,6 +21,15 @@ namespace CSharp.Assignments.Loop1
         {
             // enter sentinel inputs
             // then check the palindrome only once.
+            string pal;
+            Console.WriteLine("Enter a 9 digit positive integer");
+            pal = Console.ReadLine();
+
+            while (pal.Length < 9)
+            {
+                Console.Write("Please enter another number");
+            }
+            
         }
     }
 }

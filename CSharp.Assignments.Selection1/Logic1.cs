@@ -14,7 +14,15 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static bool CigarParty(int cigars, bool isWeekend)
         {
-            throw new NotImplementedException();
+            if (cigars >= 40 && isWeekend)
+            {
+                return true;
+            }
+            else if (cigars >= 40 && cigars <= 60 && !isWeekend)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -25,7 +33,27 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static int CaughtSpeeding(int speed, bool birthday)
         {
-            throw new NotImplementedException();
+            if (speed <= 60)
+            {
+                return 0;
+
+            }
+            else if (speed <= 65 && birthday)
+            {
+                return 0;
+            }
+            else if (speed > 65 && speed <= 85 && birthday)
+            {
+                return 1;
+            }
+            else if (speed > 60 && speed <= 80)
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;
+            }
         }
 
         /// <summary>
@@ -36,7 +64,14 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static bool Love6(int a, int b)
         {
-            throw new NotImplementedException();
+            if (a == 6 || b == 6)
+            {
+                return true;
+            }else if( a + b == 6 || a - b == 6 || b -a == 6)
+            { 
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -46,7 +81,11 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static bool More20(int num)
         {
-            throw new NotImplementedException();
+            if (num % 20 == 1 || num % 20 == 2)
+            {
+                return true; 
+            }
+            return false;
         }
 
         /// <summary>
@@ -56,7 +95,11 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static bool NearTen(int num)
         {
-            throw new NotImplementedException();
+            if (num % 10 == 8 ||num % 10 == 9 || num % 10 == 0|| num % 10 == 1 || num % 10 == 2)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -67,7 +110,16 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static int TeaParty(int tea, int candy)
         {
-            throw new NotImplementedException();
+            if(tea == 5 && candy == 5)
+            {
+                return 1;
+            }else if(tea >= candy * 2 || candy >= tea * 2)
+            {
+                return 2;
+            }else if(tea < 5 || candy < 5)
+            {
+                return 0;
+            }
         }
 
         /// <summary>
@@ -78,7 +130,14 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static bool SquirrelPlay(int temperature, bool isSummer)
         {
-            throw new NotImplementedException();
+            if (temperature >= 60 && temperature <= 90 && !isSummer)
+            {
+                return true;
+            }else if(temperature >= 60 && temperature <= 100 && isSummer)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -108,7 +167,14 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static bool AnswerCell(bool isMorning, bool isMom, bool isAsleep)
         {
-            throw new NotImplementedException();
+            if (!isMorning)
+            {
+                return true;
+            }else if(isMorning && isMom)
+            {
+                return true;
+            }
+            return false;
         }
 
 
