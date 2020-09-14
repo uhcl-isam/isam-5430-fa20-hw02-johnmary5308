@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace CSharp.Assignments.Loop1
@@ -19,17 +20,32 @@ namespace CSharp.Assignments.Loop1
     {
         public static void Main()
         {
-            // enter sentinel inputs
-            // then check the palindrome only once.
-            string pal;
-            Console.WriteLine("Enter a 9 digit positive integer");
-            pal = Console.ReadLine();
-
-            while (pal.Length < 9)
-            {
-                Console.Write("Please enter another number");
-            }
             
+            Console.WriteLine("Enter a 9 digit positive integer");
+            int count = 0;
+            int num = Convert.ToInt32(Console.ReadLine());
+            int r;
+            int sum = 0;
+            int n = num;
+            while( num > 0 && count <= 9)
+            {
+                r = num % 10;
+                sum = (sum * 10) + r;
+                num = num / 10;
+                count += 1;
+
+            }
+            if (n == sum)
+            {
+                Console.WriteLine("a palindrome");
+            }
+            else
+            {
+                Console.WriteLine("not a palindrome");
+            }
+
+
+
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 
 namespace CSharp.Assignments.Loop1
 {
@@ -22,7 +24,7 @@ namespace CSharp.Assignments.Loop1
             {
                 return true;
             }
-            return false;
+            return false ;
         }
 
         /// <summary>
@@ -120,6 +122,7 @@ namespace CSharp.Assignments.Loop1
             {
                 return 0;
             }
+            return 0;
         }
 
         /// <summary>
@@ -154,7 +157,23 @@ namespace CSharp.Assignments.Loop1
         /// <returns>either: "7:00" or "10:00" or "off"</returns>
         public static string AlarmClock(DayOfWeek dayOfWeek, bool vacation)
         {
-            throw new NotImplementedException();
+            if ((dayOfWeek == DayOfWeek.Sunday || dayOfWeek == DayOfWeek.Saturday) && !vacation)
+            {
+                return "10:00";
+            }
+            else if ((dayOfWeek == DayOfWeek.Sunday || dayOfWeek == DayOfWeek.Saturday) && vacation)
+            {
+                return "off";
+            }
+            else if ((dayOfWeek == DayOfWeek.Monday || dayOfWeek == DayOfWeek.Tuesday || dayOfWeek == DayOfWeek.Wednesday || dayOfWeek == DayOfWeek.Thursday || dayOfWeek == DayOfWeek.Friday) && !vacation)
+            {
+                return "7:00";
+            }
+            else if ((dayOfWeek == DayOfWeek.Monday || dayOfWeek == DayOfWeek.Tuesday || dayOfWeek == DayOfWeek.Wednesday || dayOfWeek == DayOfWeek.Thursday || dayOfWeek == DayOfWeek.Friday) && vacation)
+            {
+                return "10:00";
+            }
+            return "off";
         }
 
 
@@ -167,14 +186,20 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static bool AnswerCell(bool isMorning, bool isMom, bool isAsleep)
         {
-            if (!isMorning)
+            if (isMorning && isMom && !isAsleep)
             {
                 return true;
-            }else if(isMorning && isMom)
+            }else if (isMorning)
             {
-                return true;
+                return false;
             }
-            return false;
+            
+            else if (isAsleep)
+            {
+                return false;
+            }
+            return true;
+              
         }
 
 
@@ -188,8 +213,19 @@ namespace CSharp.Assignments.Loop1
         /// <param name="number">Number.</param>
         public static bool IsHilly(int number)
         {
+            int r;
+            int div;
+            int sum;
+            while (number > 0)
+            {
+                r = number % 10;
+                sum = (sum * 10) + r;
+                number = number / 10;
+            }
             throw new NotImplementedException();
+
         }
+
 
         /// <summary>
         /// Given three ints, a b c, return true if one of b or c is "close" (differing from a by at most 1), while the other is "far", differing from both other values by 2 or more. Note: Math.abs(num) computes the absolute value of a number.
@@ -200,7 +236,14 @@ namespace CSharp.Assignments.Loop1
         /// <returns></returns>
         public static bool CloseFar(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            if ((a-b <= 1 || a-b >= -1)  && (a- c > 1 || a - c < -1) &&( b - c > 1 || b-c <-1 )){ 
+                return true;
+            }else if ((a - c <= 1 || a - c >= -1) && (a - b > 1 || a - b < -1) && ( c- b > 1 || c - b < -1))
+            {
+                return true;
+            }
+            
+                return false;
         }
     }
 }
